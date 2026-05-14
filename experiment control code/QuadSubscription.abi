@@ -1,0 +1,342 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "indexNode",
+				"type": "uint256"
+			}
+		],
+		"name": "NodeIN",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256[]",
+				"name": "indexNode",
+				"type": "uint256[]"
+			}
+		],
+		"name": "SquareCover",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256[]",
+				"name": "queryIDList",
+				"type": "uint256[]"
+			}
+		],
+		"name": "SubResponse",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "queryID",
+				"type": "uint256"
+			}
+		],
+		"name": "_deleteEntryInQueryTree",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "longitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "latitude",
+				"type": "int256"
+			}
+		],
+		"name": "findPointInTree",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "indexNode",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "leftLongitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "rightLongitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "downLatitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "topLatitude",
+				"type": "int256"
+			}
+		],
+		"name": "findSquareCoverTree",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllQuerys",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "queryTreeIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "getQueryIDList",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getSumQueryTreeNode",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "queryID",
+				"type": "uint256"
+			}
+		],
+		"name": "getTheQueryCondition",
+		"outputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "int256",
+								"name": "leftLongitude",
+								"type": "int256"
+							},
+							{
+								"internalType": "int256",
+								"name": "rightLongitude",
+								"type": "int256"
+							},
+							{
+								"internalType": "int256",
+								"name": "downLatitude",
+								"type": "int256"
+							},
+							{
+								"internalType": "int256",
+								"name": "topLatitude",
+								"type": "int256"
+							}
+						],
+						"internalType": "struct Quad_tree.SquareRange",
+						"name": "geographicalRange",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "keywords",
+						"type": "bytes[]"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"internalType": "struct QuadSubscriptionQuery.QueryCondition",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "queryTreeNodeIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "getTheQueryTreeNode",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "parentPointer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[4]",
+						"name": "childPointerList",
+						"type": "uint256[4]"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sequenceNumber",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "layer",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct Quad_tree.TreeNode",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "queryID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "int256",
+				"name": "leftlongitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "rightlongitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "downlatitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "toplatitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "endtime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes[]",
+				"name": "keywords",
+				"type": "bytes[]"
+			}
+		],
+		"name": "insertNewSubscribeQuery",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "longitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "latitude",
+				"type": "int256"
+			},
+			{
+				"internalType": "bytes[]",
+				"name": "keywords",
+				"type": "bytes[]"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			}
+		],
+		"name": "subscribeQuery",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	}
+]

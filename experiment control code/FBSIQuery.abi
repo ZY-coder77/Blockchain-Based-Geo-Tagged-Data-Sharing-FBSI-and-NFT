@@ -1,0 +1,392 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256[]",
+				"name": "tokenID",
+				"type": "uint256[]"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "queryID",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "requester",
+				"type": "address"
+			}
+		],
+		"name": "FirstResponse",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint64",
+				"name": "indexNode",
+				"type": "uint64"
+			}
+		],
+		"name": "NodeIN",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint64[]",
+				"name": "indexNode",
+				"type": "uint64[]"
+			}
+		],
+		"name": "SquareCover",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int64",
+				"name": "longitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "latitude",
+				"type": "int64"
+			}
+		],
+		"name": "findPointInTree",
+		"outputs": [
+			{
+				"internalType": "uint64",
+				"name": "indexNode",
+				"type": "uint64"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int64",
+				"name": "leftLongitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "rightLongitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "downLatitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "topLatitude",
+				"type": "int64"
+			}
+		],
+		"name": "findSquareCoverTree",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllTokens",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getSumTokenTreeNode",
+		"outputs": [
+			{
+				"internalType": "uint64",
+				"name": "",
+				"type": "uint64"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			}
+		],
+		"name": "getTheTokenMetadata",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "int64",
+						"name": "longitude",
+						"type": "int64"
+					},
+					{
+						"internalType": "int64",
+						"name": "latitude",
+						"type": "int64"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "keywords",
+						"type": "bytes[]"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "URI",
+						"type": "bytes"
+					},
+					{
+						"internalType": "enum DigitalAssetSharing.AssetType",
+						"name": "type_",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct DigitalAssetSharing.Metadata",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "tokenTreeNodeIndex",
+				"type": "uint64"
+			}
+		],
+		"name": "getTheTokenTreeNode",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "int64[]",
+						"name": "boundaryList",
+						"type": "int64[]"
+					},
+					{
+						"internalType": "uint64[]",
+						"name": "childNodeList",
+						"type": "uint64[]"
+					},
+					{
+						"internalType": "uint64",
+						"name": "parentPointer",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint8",
+						"name": "layer",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sequenceNumber",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct NUP_tree.TreeNode",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "tokenTreeIndex",
+				"type": "uint64"
+			}
+		],
+		"name": "getTokenIDList",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "tokenTreeIndex",
+				"type": "uint64"
+			}
+		],
+		"name": "getTokenInvertItemList",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "bytes",
+						"name": "keyword",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "itemList",
+						"type": "uint256[]"
+					}
+				],
+				"internalType": "struct DigitalAssetSharing.InvertItem[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTokenTreeHigh",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "int64",
+				"name": "longitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "latitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "URI",
+				"type": "string"
+			},
+			{
+				"internalType": "uint8",
+				"name": "type_",
+				"type": "uint8"
+			},
+			{
+				"internalType": "bytes[]",
+				"name": "keywords",
+				"type": "bytes[]"
+			}
+		],
+		"name": "mint_",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int64",
+				"name": "leftLongitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "rightLongitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "downLatitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "topLatitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "bytes[]",
+				"name": "keywords",
+				"type": "bytes[]"
+			},
+			{
+				"internalType": "uint256",
+				"name": "queryID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "useInvert",
+				"type": "bool"
+			}
+		],
+		"name": "onceQuery",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	}
+]

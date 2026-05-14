@@ -1,0 +1,347 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint64",
+				"name": "indexNode",
+				"type": "uint64"
+			}
+		],
+		"name": "NodeIN",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint64[]",
+				"name": "indexNode",
+				"type": "uint64[]"
+			}
+		],
+		"name": "SquareCover",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256[]",
+				"name": "queryIDList",
+				"type": "uint256[]"
+			}
+		],
+		"name": "SubResponse",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "queryID",
+				"type": "uint256"
+			}
+		],
+		"name": "_deleteEntryInQueryTree",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int64",
+				"name": "longitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "latitude",
+				"type": "int64"
+			}
+		],
+		"name": "findPointInTree",
+		"outputs": [
+			{
+				"internalType": "uint64",
+				"name": "indexNode",
+				"type": "uint64"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int64",
+				"name": "leftLongitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "rightLongitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "downLatitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "topLatitude",
+				"type": "int64"
+			}
+		],
+		"name": "findSquareCoverTree",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllQuerys",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "queryTreeIndex",
+				"type": "uint64"
+			}
+		],
+		"name": "getQueryIDList",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getSumQueryTreeNode",
+		"outputs": [
+			{
+				"internalType": "uint64",
+				"name": "",
+				"type": "uint64"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "queryID",
+				"type": "uint256"
+			}
+		],
+		"name": "getTheQueryCondition",
+		"outputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "int64",
+								"name": "leftLongitude",
+								"type": "int64"
+							},
+							{
+								"internalType": "int64",
+								"name": "rightLongitude",
+								"type": "int64"
+							},
+							{
+								"internalType": "int64",
+								"name": "downLatitude",
+								"type": "int64"
+							},
+							{
+								"internalType": "int64",
+								"name": "topLatitude",
+								"type": "int64"
+							}
+						],
+						"internalType": "struct NUP_tree.SquareRange",
+						"name": "geographicalRange",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "keywords",
+						"type": "bytes[]"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"internalType": "struct NUPSubscriptionQuery.QueryCondition",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "queryTreeNodeIndex",
+				"type": "uint64"
+			}
+		],
+		"name": "getTheQueryTreeNode",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "int64[]",
+						"name": "boundaryList",
+						"type": "int64[]"
+					},
+					{
+						"internalType": "uint64[]",
+						"name": "childNodeList",
+						"type": "uint64[]"
+					},
+					{
+						"internalType": "uint64",
+						"name": "parentPointer",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint8",
+						"name": "layer",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sequenceNumber",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct NUP_tree.TreeNode",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "queryID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "int64",
+				"name": "leftlongitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "rightlongitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "downlatitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "toplatitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "uint256",
+				"name": "endtime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes[]",
+				"name": "keywords",
+				"type": "bytes[]"
+			}
+		],
+		"name": "insertNewSubscribeQuery",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int64",
+				"name": "longitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "int64",
+				"name": "latitude",
+				"type": "int64"
+			},
+			{
+				"internalType": "bytes[]",
+				"name": "keywords",
+				"type": "bytes[]"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			}
+		],
+		"name": "subscribeQuery",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	}
+]
